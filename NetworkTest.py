@@ -2,8 +2,6 @@ from qcompute_qnet.core.des import DESEnv
 
 env = DESEnv("Simulation Env", default=True)
 env.set_log(".NetworkTest.log", level="INFO")
-env.init()
-env.run(end_time=1e9, logging=True)
 
 from qcompute_qnet.topology.link import Link
 from qcompute_qnet.topology.network import Network
@@ -28,7 +26,15 @@ network.install([alice, bob, link])
 # network.install(alice)
 # network.install(repeater)
 
+env.init()
+
+network.print_classical_topology()
+network.print_quantum_topology()
+
+env.run(end_time=1e9, logging=True)
+
 
 # network.install(link1)
-network.print_classical_topology()
+
 # network.print_quantum_topology()
+

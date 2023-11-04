@@ -5,6 +5,7 @@ from qcompute_qnet.topology.link import Link
 from qcompute_qnet.devices.channel import ClassicalFiberChannel, QuantumFiberChannel
 from qcompute_qnet.models.qkd.key_generation import PrepareAndMeasure
 
+
 # 1. Create the simulation environment and set as default
 env = DESEnv("BB84", default=True)
 
@@ -36,16 +37,10 @@ link_ab.install([cchannel1, cchannel2, qchannel])
 # 5. Install the nodes and the link to the network
 network.install([alice, bob, link_ab])
 
-# network.print_quantum_topology()
-# network.print_classical_topology()
-
 # 6. Set parameters (role, key number, key length) for the start of protocol stacks
 alice.protocol_stack.start(role=PrepareAndMeasure.Role.TRANSMITTER, key_num=2, key_length=256)
 bob.protocol_stack.start(role=PrepareAndMeasure.Role.RECEIVER, key_num=2, key_length=256)
 
-# 7. Initialize the environment and run simulation with log records turned on
+# 7. Initialize the environment and run simulation, save the log records
 env.init()
 env.run(logging=True)
-
-network.print_quantum_topology()
-network.print_classical_topology()
