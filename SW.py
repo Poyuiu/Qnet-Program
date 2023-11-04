@@ -41,6 +41,8 @@ network.install([alice, bob, link_ab])
 alice.protocol_stack.start(role=PrepareAndMeasure.Role.TRANSMITTER, key_num=2, key_length=256)
 bob.protocol_stack.start(role=PrepareAndMeasure.Role.RECEIVER, key_num=2, key_length=256)
 
+network.get_classical_topology()
+
 # 7. Initialize the environment and run simulation, save the log records
 env.init()
 env.run(logging=True)
