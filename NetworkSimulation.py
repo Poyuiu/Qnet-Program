@@ -36,6 +36,9 @@ link_ab.install([cchannel1, cchannel2, qchannel])
 # 5. Install the nodes and the link to the network
 network.install([alice, bob, link_ab])
 
+# network.print_quantum_topology()
+# network.print_classical_topology()
+
 # 6. Set parameters (role, key number, key length) for the start of protocol stacks
 alice.protocol_stack.start(role=PrepareAndMeasure.Role.TRANSMITTER, key_num=2, key_length=256)
 bob.protocol_stack.start(role=PrepareAndMeasure.Role.RECEIVER, key_num=2, key_length=256)
