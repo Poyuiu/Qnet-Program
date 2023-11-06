@@ -46,6 +46,3 @@ bob.protocol_stack.start(role=PrepareAndMeasure.Role.RECEIVER, key_num=2, key_le
 # 7. Initialize the environment and run simulation with log records turned on
 env.init()
 env.run(logging=True)
-
-network.print_quantum_topology()
-network.print_classical_topology()
